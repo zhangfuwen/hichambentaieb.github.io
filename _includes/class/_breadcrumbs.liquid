@@ -1,12 +1,11 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
     <ul class="wy-breadcrumbs">
         <li>
-            <a href="{{ site.baseurl }}/" class="icon icon-home"></a>
-            <i class="fa fa-angle-double-right"></i>
+            <a href="{{ site.baseurl }}/" class="icon icon-home"></a><i class="fa fa-angle-double-right"></i>
         </li>
         {%- case page.url -%}
             {%- when "/search.html" %}
-                <li>{{ __.search }}</li>
+                <li>{{ __.search | default: "Search" }}</li>
             {%- when "/404.html" %}
                 <li>404</li>
             {%- else -%}
@@ -16,8 +15,7 @@
                         {%- if forloop.last %}
                             {{ page.name }}
                         {%- else -%}
-                            <a href="{{ site.baseurl }}/{% for block in blocks limit: forloop.index %}{{ block }}/{% endfor %}">{{ block }}</a>
-                            <i class="fa fa-angle-double-right"></i>
+                            <a href="{{ site.baseurl }}/{% for block in blocks limit: forloop.index %}{{ block }}/{% endfor %}">{{ block }}</a><i class="fa fa-angle-double-right"></i>
                         {%- endif -%}
                     </li>
                 {%- endfor -%}

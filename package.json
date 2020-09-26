@@ -1,7 +1,16 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "jquery": "^3.5.1",
     "jquery.toc": "^0.4.0",
     "mermaid": "^8.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "lighthouse": "^6.3.0",
+    "prettier": "^2.1.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }
