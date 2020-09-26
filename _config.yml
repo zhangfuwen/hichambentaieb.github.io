@@ -4,10 +4,10 @@ description: GitHub-flavored docs theme for Jekyll
 
 theme: null
 
-debug:
-  compress: false
-  dist: false
-  extension: true
+# debug:
+#   compress: true
+#   dist: true
+#   extension: true
 
 readme_index:
   with_frontmatter: true
