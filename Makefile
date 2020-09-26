@@ -1,3 +1,5 @@
+DEBUG=JEKYLL_GITHUB_TOKEN=blank PAGES_API_URL=http://0.0.0.0
+
 default:
 	@bundle install
 
@@ -7,12 +9,13 @@ update:
 clean:
 	@bundle exec jekyll clean
 
-build: clean
-	@bundle exec jekyll build --profile
-
-server: clean
-	@bundle exec jekyll server
 
 theme: clean
 	@gem uninstall jekyll-rtd-theme
 	@gem build *.gemspec && gem install *.gem
+
+site:
+	@${DEBUG} bundle exec jekyll build --safe --profile
+
+server:
+	@${DEBUG} bundle exec jekyll server --safe --livereload

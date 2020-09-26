@@ -9,7 +9,6 @@
 {% comment %} scss {% endcomment %}
 {%- capture site_scss -%}
     @import "jekyll-rtd-theme.scss";
-    {% if site.fluid %}@import "fluid.scss";{% endif %}
     {% include assets/custom.scss %} {{ site.scss }}
 {%- endcapture -%}
 
