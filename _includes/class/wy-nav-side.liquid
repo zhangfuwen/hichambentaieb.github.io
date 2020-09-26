@@ -1,0 +1,18 @@
+<nav data-toggle="wy-nav-shift" class="wy-nav-side">
+    <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+            <a href="{{ site.baseurl }}/" class="icon icon-home">
+                {{ site.title }}
+            </a>
+            <div class="version">{{ docs.latest_release.name }}</div>
+            <div role="search">
+                <form id="rtd-search-form" class="wy-form" action="{{ site.baseurl }}/search.html" method="get" autocomplete="off">
+                    <input type="text" name="q" placeholder="{{ __.search_docs | default: 'Search docs...' }}">
+                </form>
+            </div>
+        </div>
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            {% include class/_toctree.liquid %}
+        </div>
+    </div>
+</nav>

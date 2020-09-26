@@ -1,0 +1,7 @@
+<div class="admonition danger">
+    <p class="admonition-title">
+        <i class="fa fa-exclamation-circle"></i>
+        {{ __.note | default: "Note" }}
+    </p>
+    {{ codes | markdownify | strip_newlines -}}
+</div>

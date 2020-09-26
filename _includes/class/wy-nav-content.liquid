@@ -1,0 +1,15 @@
+<div class="wy-nav-content">
+    <div class="rst-content">
+        {% include class/_breadcrumbs.liquid %}
+        <div role="main" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="document" itemprop="articleBody">
+                {%- if page.url == "/search.html" -%}
+                    {{ content }}
+                {%- else -%}
+                    <div class="section">{{ content }}</div>
+                {%- endif -%}
+            </div>
+        </div>
+        {% include class/_footer.liquid %}
+    </div>
+</div>

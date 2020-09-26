@@ -1,8 +1,13 @@
 ---
-sort: 3
+sort: 2
 ---
 
 # Admonition Card
+
+THIS IS TOO LONG, NEED UPDATE! HERE IS SOME IDEAS:
+
+- https://primer.style/css/components/box
+- https://primer.style/css/components/toasts
 
 ```note
 ## This is a note
@@ -11,7 +16,7 @@ Markdown is supported, Text can be **bold**, _italic_, or ~~strikethrough~~. [Li
 
 `inline code`
 
-[`inline code inside link`](#)
+[`inline code inside link`](./)
 ```
 
 ```note

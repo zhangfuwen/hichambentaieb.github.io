@@ -1,87 +1,77 @@
-{%- assign description = content | strip_html | split: " " | join: " " | escape | truncate: 150 -%}
-{%- assign version = "1.1.7" -%}
-{%- assign addons = "github, analytics" | split: ", " -%}
+{%- comment %} Copy from v2 unless content {% endcomment -%}
 
-{%- assign schema_date = page.date | default: site.time | date_to_xmlschema -%}
+{%- include reset/site_pages.liquid -%}
+{%- include reset/i18n.liquid -%}
+
+{%- comment %} variables {% endcomment -%}
+{%- assign version = "1.1.8" -%}
+{%- assign docs = site.github -%}
+{%- assign rest = docs.public_repositories | where: "html_url", docs.repository_url | first -%}
+
+{%- assign rest_created_at = rest.created_at | default: site.time -%}
+{%- assign rest_updated_at = rest.updated_at | default: site.time -%}
+
+{%- assign lang = site.lang | default: "en" -%}
+{%- assign author = docs.owner.name | default: docs.owner_name -%}
+
+{%- comment %} schema {% endcomment -%}
+{%- assign schema_date = page.date | default: rest_created_at | date_to_xmlschema -%}
 {%- assign schema_modi = site.time | date_to_xmlschema -%}
-{%- assign schema_surl = page.url | absolute_url | xml_escape -%}
+{%- assign schema_surl = page.url  | absolute_url | xml_escape -%}
 
-{% comment %} scss {% endcomment %}
-{%- capture site_scss -%}
-    @import "jekyll-rtd-theme.scss";
-    {% include assets/custom.scss %} {{ site.scss }}
-{%- endcapture -%}
+{%- comment %} title {% endcomment -%}
+{%- case page.url -%}
+    {%- when "/" -%}
+        {%- assign title = site.title | append: " · " | append: site.description | truncate: 110 -%}
+    {%- when "/search.html" -%}
+        {%- assign title = __.search  | default: "Search" | append: " · " | append: site.title | truncate: 110 -%}
+    {%- when "/404.html" -%}
+        {%- assign title = "404"      | append: " · " | append: site.title | truncate: 110 -%}
+    {%- else -%}
+        {%- assign title = page.title | default: page.url | append: " · " | append: site.title | truncate: 110 -%}
+{%- endcase -%}
 
-{% comment %} cdn {% endcomment %}
+{%- comment %} description {% endcomment -%}
+{%- assign description = content | strip_html | split: " " | join: " " | escape | truncate: 150 -%}
+
+{% comment %} debug {% endcomment %}
 {%- if site.debug -%}
     {%- assign cdn = site.baseurl -%}
 {%- else -%}
     {%- assign cdn = "https://cdn.jsdelivr.net/gh/rundocs/jekyll-rtd-theme@" | append: version -%}
 {%- endif -%}
 
-{% comment %} github-metadata {% endcomment %}
-{%- if site.github_metadata != false -%}
-    {%- assign author = site.author | default: site.github.owner_name -%}
-    {%- assign branch = site.github.source.branch -%}
-    {%- assign commit = site.github.build_revision | slice: 0, 7 -%}
-    {%- assign repository_url = site.github.repository_url -%}
-    {%- assign issues_url = site.github.issues_url -%}
-    {%- assign zip_url = site.github.zip_url -%}
-    {%- capture github_edit_link %}{% github_edit_link %}{% endcapture -%}
-{%- else -%}
-    {%- assign author = site.author -%}
-    {%- assign branch = "" -%}
-    {%- assign commit = "" -%}
-    {%- assign repository_url = "" -%}
-    {%- assign issues_url = "" -%}
-    {%- assign zip_url = "" -%}
-    {%- assign github_edit_link = "" -%}
-    {%- assign addons = "github, analytics" | split: ", " -%}
-{%- endif -%}
-
-{%- include reset/site_pages.liquid %}
-
-
-{% comment %} title {% endcomment %}
-{%- case page.url -%}
-    {%- when "/" -%}
-        {%- assign title = site.title | append: " · " | append: site.description -%}
-    {%- when "/search.html" -%}
-        {%- assign title = __search   | append: " · " | append: site.title -%}
-    {%- when "/404.html" -%}
-        {%- assign title = __404      | append: " · " | append: site.title -%}
-    {%- else -%}
-        {%- assign title = page.title | default: page.url | append: " · " | append: site.title -%}
-{%- endcase -%}
-
 {% comment %} content {% endcomment %}
 {%- assign content = content
-    | replace: '’', "'"
-    | replace: '<pre class="highlight"><code>', '<pre class="notranslate">'
-    | replace: '<pre><code class="', '<pre class="notranslate '
+    | replace: "’", "'"
+    | replace: "“", '"'
+    | replace: "”", '"'
+    | replace: '<pre class="highlight"><code>', '<pre class="highlight">'
+    | replace: '<pre><code', '<pre'
     | replace: "</code></pre>", "</pre>"
-    | replace: '<code class="language-plaintext highlighter-rouge">', '<code class="literal">'
+    | replace: '<code class="language-plaintext', '<code class="literal'
     | replace: "<dl>", '<dl class="definition">'
     | replace: "<table>", '<div class="wy-table-responsive"><table class="docutils">'
-    | replace: "</table>", '</table></div>' -%}
+    | replace: "</table>", '</table></div>'
+    | replace: "highlighter-rouge", "highlighter-rouge notranslate" -%}
 
 {% comment %} prev and next {% endcomment %}
 {%- assign workdir_files = site_files | where_exp: "item", "item.dir == page.dir" -%}
 
-{%- assign _index = 0 -%}
+{%- assign index = 0 -%}
 {%- for item in workdir_files %}
     {%- if item.url == page.url %}
-        {%- assign _index = forloop.index -%}
+        {%- assign index = forloop.index -%}
     {%- endif %}
 {%- endfor -%}
 
 {%- for item in workdir_files -%}
-    {%- assign _index_prev = _index | minus: 1 -%}
-    {%- assign _index_next = _index | plus: 1 -%}
-    {%- if forloop.index == _index_prev -%}
+    {%- assign index_prev = index | minus: 1 -%}
+    {%- assign index_next = index | plus: 1 -%}
+    {%- if forloop.index == index_prev -%}
         {%- assign prev = item -%}
     {%- endif %}
-    {%- if forloop.index == _index_next and page.url != page.dir -%}
+    {%- if forloop.index == index_next -%}
         {%- assign next = item -%}
     {%- endif %}
 {%- endfor -%}

@@ -1,5 +1,5 @@
 ---
-sort: 8
+sort: 7
 ---
 
 # Avatar Test
@@ -9,7 +9,6 @@ sort: 8
 ```
 
 {% avatar saowang %}
-
 
 ```tip
 Set config `plugins: [jekyll-avatar]`

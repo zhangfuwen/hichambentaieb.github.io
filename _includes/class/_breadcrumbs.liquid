@@ -1,0 +1,30 @@
+<div role="navigation" aria-label="breadcrumbs navigation">
+    <ul class="wy-breadcrumbs">
+        <li>
+            <a href="{{ site.baseurl }}/" class="icon icon-home"></a>
+            <i class="fa fa-angle-double-right"></i>
+        </li>
+        {%- case page.url -%}
+            {%- when "/search.html" %}
+                <li>{{ __.search }}</li>
+            {%- when "/404.html" %}
+                <li>404</li>
+            {%- else -%}
+                {%- assign blocks = page.path | split: "/" -%}
+                {%- for block in blocks -%}
+                    <li>
+                        {%- if forloop.last %}
+                            {{ page.name }}
+                        {%- else -%}
+                            <a href="{{ site.baseurl }}/{% for block in blocks limit: forloop.index %}{{ block }}/{% endfor %}">{{ block }}</a>
+                            <i class="fa fa-angle-double-right"></i>
+                        {%- endif -%}
+                    </li>
+                {%- endfor -%}
+        {%- endcase %}
+        <li class="wy-breadcrumbs-aside">
+            <a class="fa fa-edit" href="{% github_edit_link %}" title="{{ __.edit | default: 'Edit on GitHub'}}" target="_blank"></a>
+        </li>
+    </ul>
+    <hr>
+</div>

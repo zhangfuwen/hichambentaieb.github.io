@@ -1,0 +1,22 @@
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> {{ site.title }}</span>
+        {{ docs.source.branch }}
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        {%- assign items = "github, analytics" | split: ", " -%}
+        {% for item in items -%}
+            {% include addons/{{ item }}.liquid %}
+        {% endfor -%}
+        <hr>
+        <small>
+            <span>
+                Built with
+                <a href="https://github.com/rundocs/jekyll-rtd-theme" target="_blank" title="{% if site.remote_theme %}remote{% endif %} theme v{{ version }}">jekyll-rtd-theme</a>
+                provided by
+                <a href="https://rundocs.io" target="_blank">RunDocs</a>
+            </span>
+        </small>
+    </div>
+</div>
