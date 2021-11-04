@@ -3,6 +3,7 @@
 <div id="gitalk-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
 <script >
   const gitalk = new Gitalk({
     clientID: '{{ site.gittalk.clientID }}',
@@ -10,7 +11,7 @@
     repo: "{{ site.gittalk.repository }}",
     owner: "{{ site.gittalk.owner }}",
     admin: ["{{ site.gittalk.admin | split: ','  | join: '","'}}"],
-    id: "{{ page.url }}", 
+    id: md5(location.pathname), 
     distractionFreeMode: false,
     perPage: 100
 });
