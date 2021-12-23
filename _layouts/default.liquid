@@ -28,5 +28,12 @@ layout: tasks/compress
         {%- include common/mathjax.liquid-%}
         {%- include common/google_gtag.liquid-%}
         {%- include common/google_adsense.liquid-%}
+        <script src="//cdn.rawgit.com/jmnote/plantuml-encoder/d133f316/dist/plantuml-encoder.min.js"></script>
+        <script>
+        $(".language-plantuml").each(function() {
+          var src = "//www.plantuml.com/plantuml/img/" + window.plantumlEncoder.encode( $(this).text() );
+          $(this).replaceWith($('<img>').attr('src', src));
+        });
+</script>
     </body>
 </html>
