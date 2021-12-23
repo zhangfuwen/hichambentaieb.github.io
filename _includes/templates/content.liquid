@@ -18,11 +18,5 @@
         </div>
         {% include templates/footer.liquid %}
     </div>
-    <script src="//cdn.rawgit.com/jmnote/plantuml-encoder/d133f316/dist/plantuml-encoder.min.js"></script>
-    <script>
-        $(".language-plantuml").each(function() {
-          var src = "//www.plantuml.com/plantuml/img/" + window.plantumlEncoder.encode( $(this).text() );
-          $(this).replaceWith($('<img>').attr('src', src));
-        });
-</script>
+
 </div>
