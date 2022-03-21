@@ -27,10 +27,7 @@
                 {%- endfor -%}
         {%- endcase -%}
     </ul>
-    <a class="edit" href="{% github_edit_link %}" title="{{ __.edit | default: 'Edit on GitHub'}}" rel="noreferrer" target="_blank">
-        <i class="fa fa-edit"></i>
-    </a>
-    <a class="edit" href="http://github.dev/zhangfuwen/GitNote/{{path.path}}" title="{{ __.edit | default: 'Edit on GitHub Dev'}}" rel="noreferrer" target="_blank">
+    <a class="edit" href="https://github.dev/zhangfuwen/GitNote/{{page.path}}" title="{{ __.edit | default: 'Edit on GitHub Dev'}}" rel="noreferrer" target="_blank">
         <i class="fa fa-edit"></i>
     </a>
 </div>
