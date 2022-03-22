@@ -21,15 +21,15 @@ h2:before {
 
 h3:before {
     counter-increment: sub-section;
-    content: counter(section) "."counter(sub-section) " ";
+    content: counter(section) "." counter(sub-section) " ";
 }
 
 h4:before {
     counter-increment: composite;
-    content: counter(section) "."counter(sub-section) "."counter(composite) " ";
+    content: counter(section) "." counter(sub-section) "." counter(composite) " ";
 }
 
 h5:before {
     counter-increment: detail;
-    content: counter(section) "."counter(sub-section) "."counter(composite) "."counter(detail) " ";
+    content: counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";
 }
