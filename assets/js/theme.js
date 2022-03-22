@@ -112,13 +112,13 @@ function toc() {
       let stack = [$(this).find(".content-toc")];
 
       $(".markdown-body")
-        .find("h2,h3,h4,h5,h6")
+        .find("h1,h2,h3,h4,h5,h6")
         .each(function () {
           let anchor = $("<a/>")
             .addClass("d-flex flex-items-baseline")
             .text($(this).text())
             .attr("href", `#${this.id}`);
-          let tagLevel = parseInt(this.tagName.slice(1)) - 1;
+          let tagLevel = parseInt(this.tagName.slice(1));
 
           if (tagLevel > temp) {
             let parent = stack[0].children("li:last")[0];
