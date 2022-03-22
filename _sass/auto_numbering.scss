@@ -52,3 +52,11 @@
 //     counter-increment: t6;
 //     content: counter(t1) "." counter(t2) "." counter(t3) "." counter(t4) "." counter(t5) "." counter(t6) " ";
 // }
+
+.page-title {
+    padding-bottom: 0.3em;
+    // stylelint-disable-next-line primer/typography
+    font-size: 40px;
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
