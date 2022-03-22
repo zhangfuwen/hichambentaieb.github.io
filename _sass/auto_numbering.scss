@@ -1,35 +1,54 @@
 body {
-    counter-reset: section
+    counter-reset: t1
+}
+
+h1 {
+    counter-reset: t2 
 }
 
 h2 {
-    counter-reset: sub-section
+    counter-reset: t3
 }
 
 h3 {
-    counter-reset: composite
+    counter-reset: t4
 }
 
 h4 {
-    counter-reset: detail
+    counter-reset: t5
+}
+
+h5 {
+    counter-reset: t6
+}
+
+
+h1:before {
+    counter-increment: t1;
+    content: counter(t1) ". ";
 }
 
 h2:before {
-    counter-increment: section;
-    content: counter(section) " ";
+    counter-increment: t2;
+    content: counter(t1) "." counter(t2) " ";
 }
 
 h3:before {
-    counter-increment: sub-section;
-    content: counter(section) "." counter(sub-section) " ";
+    counter-increment: t3;
+    content: counter(t1) "." counter(t2) "." counter(t3) " ";
 }
 
 h4:before {
-    counter-increment: composite;
-    content: counter(section) "." counter(sub-section) "." counter(composite) " ";
+    counter-increment: t4;
+    content: counter(t1) "." counter(t2) "." counter(t3) "." counter(t4) " ";
 }
 
 h5:before {
-    counter-increment: detail;
-    content: counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";
+    counter-increment: t5;
+    content: counter(t1) "." counter(t2) "." counter(t3) "." counter(t4) "." counter(t5) " ";
+}
+
+h6:before {
+    counter-increment: t6;
+    content: counter(t1) "." counter(t2) "." counter(t3) "." counter(t4) "." counter(t5) "." counter(t6) " ";
 }

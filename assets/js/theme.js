@@ -103,38 +103,38 @@ function toggleCurrent(link) {
   closest.toggleClass("current");
 }
 
-function heading_autonumbering() {
-  $(".markdown-body")
-  .find("h1").each(function(index) {
-    let h1_index = index + 1;
-    $(this).html((h1_index) + '. ' + $(this).html());
+// function heading_autonumbering() {
+//   $(".markdown-body")
+//   .find("h1").each(function(index) {
+//     let h1_index = index + 1;
+//     $(this).html((h1_index) + '. ' + $(this).html());
 
-    $(this).find("h2").each(function(index2) {
-      let h2_index = index2 + 1;
-      $(this).html((h1_index) + '.' + (h2_index) + '. ' + $(this).html());
+//     $(this).find("h2").each(function(index2) {
+//       let h2_index = index2 + 1;
+//       $(this).html((h1_index) + '.' + (h2_index) + '. ' + $(this).html());
 
-      $(this).find("h3").each(function(index3) {
-        let h3_index = index3 +1;
-        $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '. ' + $(this).html());
+//       $(this).find("h3").each(function(index3) {
+//         let h3_index = index3 +1;
+//         $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '. ' + $(this).html());
 
-        $(this).find("h4").each(function(index4) {
-          let h4_index = index4 +1;
-          $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '.' + (h4_index) + '. ' + $(this).html());
-          $(this).find("h5").each(function(index5) {
-            let h5_index = index5 +1;
-            $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '.' + (h4_index) + '.'+ (h5_index) +'. ' + $(this).html());
+//         $(this).find("h4").each(function(index4) {
+//           let h4_index = index4 +1;
+//           $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '.' + (h4_index) + '. ' + $(this).html());
+//           $(this).find("h5").each(function(index5) {
+//             let h5_index = index5 +1;
+//             $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '.' + (h4_index) + '.'+ (h5_index) +'. ' + $(this).html());
 
-            $(this).find("h6").each(function(index6) {
-              let h6_index = index6 +1;
-              $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '.' + (h4_index) + '.'+ (h5_index) + '.'+ (h6_index)+'. ' + $(this).html());
+//             $(this).find("h6").each(function(index6) {
+//               let h6_index = index6 +1;
+//               $(this).html((h1_index) + '.' + (h2_index) + '.' + (h3_index) + '.' + (h4_index) + '.'+ (h5_index) + '.'+ (h6_index)+'. ' + $(this).html());
 
-            }); // end h6
-          }); // end h5
-        }); // end h4
-      }); // end h3
-    }); // end h2
-  }); // end h1
-}
+//             }); // end h6
+//           }); // end h5
+//         }); // end h4
+//       }); // end h3
+//     }); // end h2
+//   }); // end h1
+// }
 
 function toc() {
   $(".toctree li.current")
@@ -279,7 +279,7 @@ if (location.pathname == `${ui.baseurl}/search.html`) {
     .fail((xhr, message) => debug(message));
 }
 
-heading_autonumbering();
+// heading_autonumbering();
 toc();
 initialize(location.pathname);
 initialize(location.hash);
