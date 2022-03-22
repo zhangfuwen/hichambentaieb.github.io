@@ -28,7 +28,8 @@
 {%- if site.debug -%}
     {%- assign base = site.baseurl -%}
 {%- else -%}
-    {%- assign base = "https://cdn.jsdelivr.net/gh/" | append: theme_alias -%}
+    {%- assign base = site.baseurl -%}
+    {% comment %} {%- assign base = "https://cdn.jsdelivr.net/gh/" | append: theme_alias -%} {% endcomment %}
 {%- endif -%}
 
 {% comment %} extra {% endcomment %}
