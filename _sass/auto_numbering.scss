@@ -54,9 +54,9 @@
 // }
 
 .page-title {
-    padding-bottom: 0.3em;
     // stylelint-disable-next-line primer/typography
+    margin-bottom: 40px;
     font-size: 40px;
-    margin-top: 24px;
-    margin-bottom: 32px;
+    margin-top: 40px;
+    border-bottom: 2px solid #dddddd;
 }
