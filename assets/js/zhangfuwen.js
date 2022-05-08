@@ -11,10 +11,10 @@ $(function () {
     $("pre").each(function () {
         var x = $(this);
         let h = $(this).css("height");
-        if (h != "100px") {
+        if (h != "200px") {
 
-            x.css("max-height", 100);
-            x.css("height", 100);
+            x.css("max-height", 200);
+            x.css("height", 200);
 
             let butExpand = $("<button>click to expand</button>").appendTo($(this).parent());
             let butCollapse = $("<button>click to collapse</button>").prependTo(x.parent());
@@ -31,8 +31,8 @@ $(function () {
             });
 
             butCollapse.click(function () {
-                x.css("max-height", "100px");
-                x.css("height", "100px");
+                x.css("max-height", "200px");
+                x.css("height", "200px");
                 console.log("height", x.css("height"));
                 console.log("max", x.css("max-height"));
                 butCollapse.hide();
