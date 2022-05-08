@@ -8,6 +8,11 @@ function DoModal(but, contentNode) {
 }
 
 $(function () {
+    $(".content").append("<div id='editor' class='Modal'></div>");
+    var myeditor = ace.edit("editor");
+    myeditor.session.setMode("ace/mode/javascript");
+    myeditor.setKeyboardHandler("ace/keyboard/vim");
+    myeditor.setTheme("ace/theme/solarized_light");
     $("pre").each(function () {
         var x = $(this);
         let h = $(this).css("height");
