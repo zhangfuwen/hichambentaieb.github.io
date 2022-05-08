@@ -1,0 +1,20 @@
+.Modal {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #8e44ad;
+    z-index: 9999;
+  }
+
+  .Modal .Close {
+    position: absolute;
+    top: 25px;
+    right: 65px;
+    z-index: 999;
+    cursor: pointer;
+  }
