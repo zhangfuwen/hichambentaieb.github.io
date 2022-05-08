@@ -18,3 +18,12 @@
     z-index: 999;
     cursor: pointer;
   }
+
+  pre {
+      width:100%;
+  }
+
+  .highlight button {
+      float:right;
+      border: none;
+  }
