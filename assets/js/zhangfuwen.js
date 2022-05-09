@@ -55,7 +55,7 @@ $(function () {
         var x = $(this);
         var code = x.children("code").eq(0);
         let butModel = $("<button> Maximize</button>").appendTo(x.parent());
-        DoModal(butModel, code.text());
+        DoModal(butModel, code);
     });
 
 });
