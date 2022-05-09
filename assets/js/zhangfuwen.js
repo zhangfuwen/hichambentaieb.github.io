@@ -1,7 +1,7 @@
 
 function DoModal(but, contentNode) {
     but.click(function(){
-        $(".Modal").html(contextNode);
+        $(".Modal").html(contentNode);
         $(".Modal").fadeToggle();
     });
 
