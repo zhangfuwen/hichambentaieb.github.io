@@ -2,9 +2,24 @@
 function DoModal(but, contentNode) {
     but.click(function(){
         $(".Modal").html(contentNode);
+        $(".Model").append("<button class='Close'>Close</button>");
         $(".Modal").fadeToggle();
     });
 
+}
+
+function GenToc()
+{
+    var toc = $("<div id='toc'></div>").appendTo($("body"));
+
+    $(".markdown-body").children("h1,h2,h3,h4,h5,h6").clone().each(function () {
+        var x = $(this);
+        var link = x.find("a").attr("href");
+
+        var text = x.text();
+        var clazz = x.prop("tagName");
+        $("#toc").append("<p class='" + clazz + "'><a href='" + link + "'>" + text + "</a></p>");
+    });
 }
 
 $(function () {
@@ -53,9 +68,11 @@ $(function () {
 
     $("pre").each(function() {
         var x = $(this);
-        var code = x.children("code").eq(0);
+        var code = x.children("code").eq(0).clone();
         let butModel = $("<button> Maximize</button>").prependTo(x.parent());
         DoModal(butModel, code);
     });
+    var toc = $("<div id='toc'></div>").appendTo($("body"));
+    $(".markdown-body").children("h1,h2,h3,h4,h5").appendTo($("#toc"));
 
 });

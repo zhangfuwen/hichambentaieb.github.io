@@ -1,29 +1,50 @@
 .Modal {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background: #8e44ad;
-    z-index: 9999;
-  }
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #8e44ad;
+  z-index: 9999;
+}
 
-  .Modal .Close {
-    position: absolute;
-    top: 25px;
-    right: 65px;
-    z-index: 999;
-    cursor: pointer;
-  }
+.Modal .Close {
+  position: absolute;
+  top: 25px;
+  right: 65px;
+  z-index: 999;
+  cursor: pointer;
+}
 
-  pre {
-      width:100%;
-  }
+pre {
+  width: 100%;
+}
 
-  .highlight > button {
-      float:right;
-      border: none;
-  }
+.highlight>button {
+  float: right;
+  border: none;
+}
+
+#toc {
+  padding: 10px;
+  z-index: 9999;
+  position: fixed;
+  height: auto;
+  width: auto;
+  right: 0px;
+  top: 100px;
+  background: wheat;
+}
+#toc >p {
+  line-height:0.8;
+  font-style:oblique;
+}
+#toc .H1 { padding-left:6px;}
+#toc .H2 {padding-left: 20px }
+#toc .H3 {padding-left:30px;}
+#toc .H4 {padding-left: 40px;}
+#toc .H5 {padding-left: 50px;}
+#toc .H6 {padding-left:60px;}
