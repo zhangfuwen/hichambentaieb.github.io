@@ -80,7 +80,5 @@ $(function () {
         let butModel = $("<button> Maximize</button>").prependTo(x.parent());
         DoModal(butModel, code);
     });
-    var toc = $("<div id='toc'></div>").appendTo($("body"));
-    $(".markdown-body").children("h1,h2,h3,h4,h5").appendTo($("#toc"));
-
+    GenToc();
 });
