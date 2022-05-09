@@ -23,7 +23,7 @@
       width:100%;
   }
 
-  .highlight button {
+  .highlight > button {
       float:right;
       border: none;
   }

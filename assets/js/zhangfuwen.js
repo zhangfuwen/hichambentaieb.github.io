@@ -21,8 +21,8 @@ $(function () {
             x.css("max-height", 200);
             x.css("height", 200);
 
-            let butExpand = $("<button>click to expand</button>").appendTo($(this).parent());
-            let butCollapse = $("<button>click to collapse</button>").prependTo(x.parent());
+            let butExpand = $("<button>Expand</button>").appendTo($(this).parent());
+            let butCollapse = $("<button>Collapse</button>").prependTo(x.parent());
             butExpand.show();
             butCollapse.hide();
 
@@ -54,7 +54,7 @@ $(function () {
     $("pre").each(function() {
         var x = $(this);
         var code = x.children("code").eq(0);
-        let butModel = $("<button> Maximize</button>").appendTo(x.parent());
+        let butModel = $("<button> Maximize</button>").prependTo(x.parent());
         DoModal(butModel, code);
     });
 
