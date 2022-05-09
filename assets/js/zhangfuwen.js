@@ -1,5 +1,5 @@
 
-function DoModal(but, contentNode) {
+function DoModal(but, contentNode, lang) {
     but.click(function(){
         $(".Modal").html("")
         $(".Modal").removeAttr("id");
@@ -14,7 +14,7 @@ function DoModal(but, contentNode) {
         
         
         var myeditor = ace.edit("editor");
-        myeditor.session.setMode("ace/mode/javascript");
+        myeditor.session.setMode("ace/mode/"+lang);
         myeditor.setKeyboardHandler("ace/keyboard/vim");
         myeditor.setTheme("ace/theme/solarized_light");
     });
@@ -23,7 +23,10 @@ function DoModal(but, contentNode) {
 
 function GenToc()
 {
-    var toc = $("<div id='toc'></div>").appendTo($("body"));
+    var toc = $("<div id='toc'><button id='toc-but'>toc</button></div>").appendTo($("body"));
+    $("#toc-but").click(function() {
+        $("#toc > p").toggle();
+    });
 
     $(".markdown-body").children("h1,h2,h3,h4,h5,h6").clone().each(function () {
         var x = $(this);
@@ -78,7 +81,8 @@ $(function () {
         var x = $(this);
         var code = x.children("code").eq(0).clone();
         let butModel = $("<button> Maximize</button>").prependTo(x.parent());
-        DoModal(butModel, code);
+        let lang = $(this).parent().parent().attr("data-lang");
+        DoModal(butModel, code, lang);
     });
     GenToc();
 });
