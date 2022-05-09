@@ -1,9 +1,22 @@
 
 function DoModal(but, contentNode) {
     but.click(function(){
-        $(".Modal").html(contentNode);
-        $(".Model").append("<button class='Close'>Close</button>");
+        $(".Modal").html("")
+        $(".Modal").removeAttr("id");
         $(".Modal").fadeToggle();
+        $(".Modal").append("<button class='Close'>Close</button>");
+        $(".Close").click(function(){
+            $(".Modal").fadeOut();
+        });
+
+        var editorNode = $("<div id='editor'><div>").appendTo($(".Modal"));
+        editorNode.html(contentNode);
+        
+        
+        var myeditor = ace.edit("editor");
+        myeditor.session.setMode("ace/mode/javascript");
+        myeditor.setKeyboardHandler("ace/keyboard/vim");
+        myeditor.setTheme("ace/theme/solarized_light");
     });
 
 }
@@ -24,10 +37,7 @@ function GenToc()
 
 $(function () {
     $(".content").append("<div id='editor' class='Modal'></div>");
-    var myeditor = ace.edit("editor");
-    myeditor.session.setMode("ace/mode/javascript");
-    myeditor.setKeyboardHandler("ace/keyboard/vim");
-    myeditor.setTheme("ace/theme/solarized_light");
+
     $("pre").each(function () {
         var x = $(this);
         let h = $(this).css("height");
@@ -62,9 +72,7 @@ $(function () {
     });
 
     $(".Modal").hide();
-    $(".Close").click(function(){
-      $(".Modal").fadeOut();
-    });
+
 
     $("pre").each(function() {
         var x = $(this);
