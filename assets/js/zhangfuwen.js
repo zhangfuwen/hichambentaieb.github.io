@@ -23,9 +23,18 @@ function DoModal(but, contentNode, lang) {
 
 function GenToc()
 {
-    var toc = $("<div id='toc'><button id='toc-but'>toc</button></div>").appendTo($("body"));
+    var toc = $("<div id='toc'><button id='toc-but'>Table of contents</button></div>").appendTo($("body"));
     $("#toc-but").click(function() {
         $("#toc > p").toggle();
+        if($("#toc > p").eq(0).css("display") == "block") {
+            $("#toc").css("background", "wheat");
+            $("#toc").css("padding", "10px");
+            $("#toc").rotate(0);
+        } else {
+            $("#toc").css("background", "none");
+            $("#toc").css("padding", "0px");
+            $("#toc").rotate(90);
+        }
     });
 
     $(".markdown-body").children("h1,h2,h3,h4,h5,h6").clone().each(function () {
@@ -43,8 +52,8 @@ $(function () {
 
     $("pre").each(function () {
         var x = $(this);
-        let h = $(this).css("height");
-        if (h != "200px") {
+        let h = $(this).height();
+        if (h >= 200) {
 
             x.css("max-height", 200);
             x.css("height", 200);

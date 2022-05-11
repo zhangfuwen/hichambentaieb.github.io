@@ -22,6 +22,12 @@ pre {
   line-height:0.8;
   font-style:oblique;
 }
+
+#toc-but {
+  margin-bottom: 10px;
+  border: none;
+  text-orientation: upright;
+}
 #toc .H1 { padding-left:6px;}
 #toc .H2 {padding-left: 20px }
 #toc .H3 {padding-left:30px;}
