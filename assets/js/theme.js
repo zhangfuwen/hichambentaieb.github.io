@@ -288,7 +288,7 @@ if (location.pathname == `${ui.baseurl}/search.html`) {
 }
 
 heading_autonumbering();
-toc();
+// toc();
 initialize(location.pathname);
 initialize(location.hash);
 restore();
