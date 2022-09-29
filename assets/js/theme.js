@@ -199,10 +199,13 @@ function debug() {
 
 function addCandidate() {
   $(".toctree  a").each(function(index, value) { $("#cand").append("<option value=\"" + value.text+"\" />"); });
+  $("#candInput").keydown(function(key) { console.log(key.key); if(key.key === 'Enter'  ) {
+    redirectToCandidate();
+  }});
 }
 
 function redirectToCandidate() {
-  let valueText = $("#candInput").text;
+  let valueText = $("#candInput")[0].value;
   $(".toctree a").each(function(index, value) { if(value.text == valueText) {
       value.click();
   }});
