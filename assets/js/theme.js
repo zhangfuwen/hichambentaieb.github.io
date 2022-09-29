@@ -197,6 +197,17 @@ function debug() {
   console.debug.apply(console, arguments);
 }
 
+function addCandidate() {
+  $(".toctree  a").each(function(index, value) { $("#cand").append("<option value=\"" + value.text+"\" />"); });
+}
+
+function redirectToCandidate() {
+  let valueText = $("#candInput").text;
+  $(".toctree a").each(function(index, value) { if(value.text == valueText) {
+      value.click();
+  }});
+}
+
 function restore() {
   let scroll = get("scroll");
   let scrollTime = get("scrollTime");
@@ -293,6 +304,8 @@ initialize(location.pathname);
 initialize(location.hash);
 restore();
 highlight();
+
+addCandidate();
 
 /* nested ul */
 $(".toc ul")
