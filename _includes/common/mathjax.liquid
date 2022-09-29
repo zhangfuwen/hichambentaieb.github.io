@@ -1,6 +1,8 @@
-{%- if page.content contains "$$" -%}
+{%- if page.content contains "$" -%}
     <script>
       window.MathJax = {% if site.mathjax %}{{ site.mathjax | jsonify }}{% else %}{}{% endif %};
     </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax/es5/tex-svg-full.js"></script>
+    {% comment %} <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax/es5/tex-svg-full.js"></script> {% endcomment %}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {%- endif %}
