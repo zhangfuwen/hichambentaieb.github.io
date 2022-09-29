@@ -322,7 +322,7 @@ $(".toc ul")
       toggleCurrent(link);
       return false;
     });
-    link.prepend(expand);
+    link.append(expand);
   });
 
 $(".markdown-body :header").append(function () {
