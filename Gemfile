@@ -6,3 +6,5 @@ gem "github-pages", group: :jekyll_plugins
 gem 'jekyll-asciidoc', group: :jekyll_plugins
 
 gem 'jekyll-asciidoc'
+
+gem 'jekyll-avatar'
