@@ -8,3 +8,4 @@ gem 'jekyll-asciidoc', group: :jekyll_plugins
 gem 'jekyll-asciidoc'
 
 gem 'jekyll-avatar'
+gem 'jekyll-mentions'
