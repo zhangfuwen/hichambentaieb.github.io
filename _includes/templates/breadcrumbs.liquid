@@ -27,10 +27,12 @@
                 {%- endfor -%}
         {%- endcase -%}
     </ul>
-    <a class="edit" href="https://github.dev/zhangfuwen/GitNote/blob/master/{{page.path}}" title="{{ __.edit | default: 'Edit on GitHub Dev'}}" rel="noreferrer" target="_blank">
-        <i class="fa fa-edit"></i>
-    </a>
-    <a class="edit" href="https://github.com/zhangfuwen/GitNote/blob/master/{{page.path}}" title="{{ __.edit | default: 'Edit on GitHub Dev'}}" rel="noreferrer" target="_blank">
-        <i class="fa-brands fa-github"></i>
-    </a>
+    <div class="edit">
+        <a href="https://github.dev/zhangfuwen/GitNote/blob/master/{{page.path}}" title="{{ __.edit | default: 'Edit on GitHub Dev'}}" rel="noreferrer" target="_blank">
+            <i class="fa fa-edit"></i>
+        </a>
+        <a href="https://github.com/zhangfuwen/GitNote/blob/master/{{page.path}}" title="{{ __.edit | default: 'Edit on GitHub'}}" rel="noreferrer" target="_blank">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    </div>
 </div>
