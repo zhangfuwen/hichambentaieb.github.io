@@ -4,23 +4,21 @@
     </script> {% endcomment %}
     {% comment %} <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax/es5/tex-svg-full.js"></script> {% endcomment %}
 
-    {% comment %} <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        processEscapes: true
-      }
-    });
+  <script>
   MathJax = {
     tex: {
       inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      displayMath: [ ['$$', '$$'] ],
       processEscapes: true,
+    },
+    svg: {
+      fontCache: 'global'
     }
   }
   </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> {% endcomment %}
-        <script type="text/x-mathjax-config">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        {% comment %} <script type="text/x-mathjax-config">
             MathJax.Hub.Config({
                 TeX: {
                 equationNumbers: {
@@ -40,5 +38,5 @@
                 alert("Math Processing Error: "+message[1]);
                 });
         </script>
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> {% endcomment %}
 {%- endif %}
