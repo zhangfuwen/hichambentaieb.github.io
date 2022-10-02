@@ -29,15 +29,15 @@ function GenToc()
         if($("#toc > p").eq(0).css("display") == "block") {
             $("#toc").css("background", "wheat");
             $("#toc").css("padding", "10px");
-            $("#toc").rotate(0);
+            $("#toc").css("transform","rotate(0deg)");
         } else {
             $("#toc").css("background", "none");
             $("#toc").css("padding", "0px");
-            $("#toc").rotate(90);
+            $("#toc").css("transform","rotate(270deg)");
         }
     });
 
-    $(".markdown-body").children("h1,h2,h3,h4,h5,h6").clone().each(function () {
+    $(".markdown-body").find("h1,h2,h3,h4,h5,h6").clone().each(function () {
         var x = $(this);
         var link = x.find("a").attr("href");
 
