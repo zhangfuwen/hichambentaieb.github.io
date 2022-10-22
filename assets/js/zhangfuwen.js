@@ -51,6 +51,7 @@ $(function () {
     $(".content").append("<div id='editor' class='Modal'></div>");
 
     $("pre").each(function () {
+        var expanded = false;
         var x = $(this);
         let h = $(this).height();
         if (h >= 200) {
@@ -58,28 +59,40 @@ $(function () {
             x.css("max-height", 200);
             x.css("height", 200);
 
-            let butExpand = $("<button>Expand</button>").appendTo($(this).parent());
-            let butCollapse = $("<button>Collapse</button>").prependTo(x.parent());
+            let butExpand = $("<button class='expand-code'>Expand</button>").appendTo($(this).parent());
+            // let butCollapse = $("<button class='collapse-code'>Collapse</button>").appendTo(x.parent());
             butExpand.show();
-            butCollapse.hide();
+            // butCollapse.hide();
+            butExpand.css("width","100%");
 
             butExpand.click(function () {
-                x.css("max-height", "none");
-                x.css("height", "auto");
-                console.log("height", x.css("height"));
-                console.log("max", x.css("max-height"));
-                butExpand.hide();
-                butCollapse.show();
+                expanded = !expanded;
+                
+                if(expanded) {
+                    x.css("max-height", "200px");
+                    x.css("height", "200px");
+                    butExpand.html("collapse")
+                } else {
+                    x.css("max-height", "none");
+                    x.css("height", "auto");
+                    butExpand.html("expand");
+                }
             });
 
-            butCollapse.click(function () {
-                x.css("max-height", "200px");
-                x.css("height", "200px");
-                console.log("height", x.css("height"));
-                console.log("max", x.css("max-height"));
-                butCollapse.hide();
+            x.hover(function(){
                 butExpand.show();
+                }, function(){
+                butExpand.hide();
             });
+
+            // butCollapse.click(function () {
+            //     x.css("max-height", "200px");
+            //     x.css("height", "200px");
+            //     console.log("height", x.css("height"));
+            //     console.log("max", x.css("max-height"));
+            //     butCollapse.hide();
+            //     butExpand.show();
+            // });
         }
     });
 
@@ -89,7 +102,7 @@ $(function () {
     $("pre").each(function() {
         var x = $(this);
         var code = x.children("code").eq(0).clone();
-        let butModel = $("<button> Maximize</button>").prependTo(x.parent());
+        let butModel = $("<button id=\"maximize-code\"> Maximize</button>").prependTo(x.parent());
         let lang = $(this).parent().parent().attr("data-lang");
         DoModal(butModel, code, lang);
     });
