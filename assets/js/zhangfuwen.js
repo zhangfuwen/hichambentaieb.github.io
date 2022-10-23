@@ -58,12 +58,14 @@ $(function () {
 
             x.css("max-height", 200);
             x.css("height", 200);
+            
 
             let butExpand = $("<button class='expand-code'>Expand</button>").appendTo($(this).parent());
             // let butCollapse = $("<button class='collapse-code'>Collapse</button>").appendTo(x.parent());
-            butExpand.show();
+            butExpand.hide();
             // butCollapse.hide();
             butExpand.css("width","100%");
+            butExpand.html("<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>");
 
             butExpand.click(function () {
                 expanded = !expanded;
@@ -71,11 +73,11 @@ $(function () {
                 if(expanded) {
                     x.css("max-height", "200px");
                     x.css("height", "200px");
-                    butExpand.html("<i class=\"fa fa-angle-up\" aria-hidden=\"true\"></i>")
+                    butExpand.html("<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>");
                 } else {
                     x.css("max-height", "none");
                     x.css("height", "auto");
-                    butExpand.html("<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>");
+                    butExpand.html("<i class=\"fa fa-angle-up\" aria-hidden=\"true\"></i>");
                 }
             });
 
