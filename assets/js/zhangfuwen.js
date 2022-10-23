@@ -68,7 +68,6 @@ $(function () {
             butExpand.html("<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>");
 
             butExpand.click(function () {
-                expanded = !expanded;
                 
                 if(expanded) {
                     x.css("max-height", "200px");
@@ -79,6 +78,7 @@ $(function () {
                     x.css("height", "auto");
                     butExpand.html("<i class=\"fa fa-angle-up\" aria-hidden=\"true\"></i>");
                 }
+                expanded = !expanded;
             });
 
             x.parent().hover(function(){
