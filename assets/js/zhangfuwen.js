@@ -71,15 +71,15 @@ $(function () {
                 if(expanded) {
                     x.css("max-height", "200px");
                     x.css("height", "200px");
-                    butExpand.html("collapse")
+                    butExpand.html("<i class=\"fa fa-angle-up\" aria-hidden=\"true\"></i>")
                 } else {
                     x.css("max-height", "none");
                     x.css("height", "auto");
-                    butExpand.html("expand");
+                    butExpand.html("<i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>");
                 }
             });
 
-            x.hover(function(){
+            x.parent().hover(function(){
                 butExpand.show();
                 }, function(){
                 butExpand.hide();
@@ -102,7 +102,7 @@ $(function () {
     $("pre").each(function() {
         var x = $(this);
         var code = x.children("code").eq(0).clone();
-        let butModel = $("<button id=\"maximize-code\"> Maximize</button>").prependTo(x.parent());
+        // let butModel = $("<button id=\"maximize-code\"> Maximize</button>").prependTo(x.parent());
         let lang = $(this).parent().parent().attr("data-lang");
         DoModal(butModel, code, lang);
     });
